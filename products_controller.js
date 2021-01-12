@@ -36,7 +36,7 @@ module.exports = {
         const {desc} = req.query
 
         dbInstance.update_product( id, desc)
-            .then( () => sendStatus(200) )
+            .then( () => res.sendStatus(200) )
             .catch( err => {
                 res.status(500).send({errorMessage: 'Failed to update product!'})
                 console.log(err)
@@ -47,8 +47,8 @@ module.exports = {
         const { id } = req.params
 
 
-        dbInstance.update_product(id)
-            .then(() => sendStatus(200))
+        dbInstance.delete_product(id)
+            .then(() => res.sendStatus(200))
             .catch( err => {
                 res.status(500).send({errorMessage: 'Failed to delete product!'})
             })
